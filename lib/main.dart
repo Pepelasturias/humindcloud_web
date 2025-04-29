@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'views/home_page.dart';
 
 void main() {
   runApp(const HumindCloudApp());
@@ -9,17 +10,9 @@ class HumindCloudApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Humind Cloud',
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Bienvenido a Humind Cloud',
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }
