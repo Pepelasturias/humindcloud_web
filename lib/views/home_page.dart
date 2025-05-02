@@ -4,6 +4,7 @@ import '../sections/about_section.dart';
 import '../sections/services_section.dart';
 import '../sections/packages_section.dart';
 import '../sections/contact_section.dart';
+import '../utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,17 +68,39 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 100),
+                    padding: const EdgeInsets.symmetric(vertical: 200),
+                    color: AppColors.primaryBlue,
                     alignment: Alignment.center,
-                    child: const Text(
-                      'Bienvenido a Humind Cloud',
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset('assets/images/logo-provisional.jpeg', height: 170, fit: BoxFit.contain),
+                        const SizedBox(height: 20), 
+                        const Text(
+                          'Bienvenido a Humind Cloud',
+                          style: TextStyle(
+                            fontSize: 38,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.white,
+                            fontFamily: 'Quantico',
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SectionWrapper(key: aboutKey, child: const AboutSection()),
-                  SectionWrapper(key: servicesKey, child: const ServicesSection()),
-                  SectionWrapper(key: packagesKey, child: const PackagesSection()),
-                  SectionWrapper(key: contactKey, child: const ContactSection()),
+                  SectionWrapper(
+                    key: servicesKey,
+                    child: const ServicesSection(),
+                  ),
+                  SectionWrapper(
+                    key: packagesKey,
+                    child: const PackagesSection(),
+                  ),
+                  SectionWrapper(
+                    key: contactKey,
+                    child: const ContactSection(),
+                  ),
                 ],
               ),
             ),
@@ -94,9 +117,6 @@ class SectionWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: key,
-      child: child,
-    );
+    return Container(key: key, child: child);
   }
 }

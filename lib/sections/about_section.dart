@@ -7,18 +7,19 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+      color: AppColors.darkGray,
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 150),
       width: double.infinity,
       child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             '¿Quiénes somos?',
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: AppColors.darkGray,
+              color: AppColors.white,
+              fontFamily: 'Quantico'
             ),
           ),
           SizedBox(height: 20),
@@ -27,8 +28,10 @@ class AboutSection extends StatelessWidget {
                 'Combinamos tecnología, diseño y estrategia para ayudarte a crecer de forma eficiente.',
             style: TextStyle(
               fontSize: 18,
-              color: AppColors.darkGray,
+              color: AppColors.white,
+              fontFamily: 'Quantico'
             ),
+            textAlign: TextAlign.justify,
           ),
         ],
       ),
