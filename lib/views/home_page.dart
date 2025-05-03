@@ -21,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   final packagesKey = GlobalKey();
   final contactKey = GlobalKey();
 
+  double _opacity = 0.0;
+
   void scrollTo(GlobalKey key) {
     final context = key.currentContext;
     if (context != null) {
@@ -30,6 +32,17 @@ class _HomePageState extends State<HomePage> {
         curve: Curves.easeInOut,
       );
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Cambia la opacidad a 1.0 después de un pequeño retraso
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _opacity = 1.0;
+      });
+    });
   }
 
   @override
@@ -68,14 +81,18 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 200),
+                    padding: const EdgeInsets.symmetric(vertical: 190),
                     color: AppColors.primaryBlue,
                     alignment: Alignment.center,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.asset('assets/images/logo-provisional.jpeg', height: 170, fit: BoxFit.contain),
-                        const SizedBox(height: 20), 
+                        Image.asset(
+                          'assets/images/logo-provisional.jpeg',
+                          height: 170,
+                          fit: BoxFit.contain,
+                        ),
+                        const SizedBox(height: 20),
                         const Text(
                           'Bienvenido a Humind Cloud',
                           style: TextStyle(
@@ -83,6 +100,21 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.bold,
                             color: AppColors.white,
                             fontFamily: 'Quantico',
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        AnimatedOpacity(
+                          opacity: _opacity, 
+                          duration: const Duration(seconds: 3),
+                          child: const Text(
+                            'Soluciones inteligentes para la evolución de tu empresa',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal,
+                              color: AppColors.white,
+                              fontFamily: 'Quantico',
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ],
