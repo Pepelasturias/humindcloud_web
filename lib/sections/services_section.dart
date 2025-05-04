@@ -7,18 +7,19 @@ class ServicesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.primaryBlue.withOpacity(0.05),
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+      color: AppColors.accentPink,
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 120),
       width: double.infinity,
       child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'Servicios',
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: AppColors.darkGray,
+              color: AppColors.white,
+              fontFamily: 'Quantico',
             ),
           ),
           SizedBox(height: 20),
@@ -28,7 +29,7 @@ class ServicesSection extends StatelessWidget {
                 '• Sistemas administrativos\n'
                 '• Automatización con inteligencia artificial\n'
                 '• Integraciones y soluciones a medida',
-            style: TextStyle(fontSize: 18, color: AppColors.darkGray),
+            style: TextStyle(fontSize: 23, color: AppColors.white, fontFamily: 'Quantico')
           ),
         ],
       ),
